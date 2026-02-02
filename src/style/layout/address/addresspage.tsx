@@ -1,37 +1,9 @@
 import '../../index.scss';
-import { useState } from "react";
-import WalletBalance from "./WalletBalance";
-
-
-
-
-
-
-
 
 const Main: React.FC = () => {
-
-
-
-
-  //WEBSITE THINg
-  const [copied, setCopied] = useState(false);
-  const textToCopy = "0xaE7281756568e9093AB4129F57123681E085a354";
-  
-
-  const handleCopy = async () => {
-    await navigator.clipboard.writeText(textToCopy);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 1000);
-  };
-
-
-
   return (
     <>
-
       <div>
-
 
         <section className="page home-page">
 
@@ -62,13 +34,7 @@ const Main: React.FC = () => {
                   <div>|</div>
                 </button>
 
-                <div className='copybutton'>
-                  <button onClick={handleCopy}>
-                    <img src="src\assets\image\icon_square2_stacked.svg"></img>
-                    {copied ? <text className='copy-message'>"Wallet Address Copied!"</text> : ""}
-                  </button>
-                </div>
-
+                <button><img src="src\assets\image\icon_square2_stacked.svg"></img></button>
               </div>
 
               <div className='scan-alarm'>
@@ -107,25 +73,12 @@ const Main: React.FC = () => {
               <div></div>
 
               <div className='list-empty'>
-                {/* <img className='list-empty-graphic' src="src\assets\image\graphicEmpty.svg"></img>
+                <img className='list-empty-graphic' src="src\assets\image\graphicEmpty.svg"></img>
                 <div className='empty-cryptos'>There are no cryptos.</div>
-                <button className='add-token-button'>Add tokens</button> */}
-
-
-                <div className='coin-asset-div'>
-                  <div className='coin-asset'>
-                    <img src="src\assets\image\eth.svg"></img>
-                    <div className='coin-asset-text'>
-                      <div className='coin-asset-ticker'>ETH</div>
-                      <div className='coin-asset-fullname'>Sepolia Ethereum</div>
-                    </div>
-                  </div>
-                  <div className='coin-asset-amount'><WalletBalance/></div>
-                </div>
-
-
-
+                <button className='add-token-button'>Add ssss</button>
               </div>
+
+              
 
 
             </div>

@@ -1,0 +1,31 @@
+import { generatePrivateKey, privateKeyToAccount }    from "viem/accounts";
+// TASK connect to Testnet 
+// Show ethereum
+
+
+
+const privateKey = generatePrivateKey()
+
+
+localStorage
+
+faucet
+
+
+//faucet --> service 
+//sepoila --> ethereum testnet
+
+
+// ECDSA algorithm
+const account = privateKeyToAccount(privateKey)
+// Hash 함수 
+
+console.log(account.address)
+
+
+//Add tokens 
+
+// 
+
+
+viem으로 eth sepoila에서 새로운 토ㄱ큰을 만들어보고 싶어. 
