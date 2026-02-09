@@ -1,23 +1,34 @@
 import '../../index.scss';
 import { useState } from "react";
 import WalletBalance from "./WalletBalance";
-
-
-
+import { useNavigate } from "react-router-dom";
 
 
 
 
 
 const Main: React.FC = () => {
+  const navigate = useNavigate(); 
 
+
+  //DROPDOWN THANG
+  const [open, setOpen] = useState(false);
+
+  function openSheet() {
+    setOpen(true);
+    console.log("bruh");
+  }
+
+  function closeSheet() {
+    setOpen(false);
+  }
 
 
 
   //WEBSITE THINg
   const [copied, setCopied] = useState(false);
-  const textToCopy = "0xaE7281756568e9093AB4129F57123681E085a354";
-  
+  const textToCopy = "0xc294d6bdB0a7F3c88F56Bea4cE3Ca7ee1fE370D2";
+
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(textToCopy);
@@ -55,7 +66,7 @@ const Main: React.FC = () => {
           <div className="box-content">
             <header className="heading">
               <div className='address-copy'>
-                <button className="wallets" aria-haspopup="dialog" aria-expanded="false">
+                <button className="wallets" onClick={openSheet}>
                   <img src="src\assets\image\graphic.svg"></img>
                   <p>Address 1</p>
                   <img src="src\assets\image\dropdown_icon.svg"></img>
@@ -82,7 +93,7 @@ const Main: React.FC = () => {
                 <div className='total-ctc-balance'>Total CTC Balance <img src="src\assets\image\icon_infomark_circle.svg"></img></div>
                 <div className='balancedisplay'>0 CTC</div>
                 <div className='balancebuttondiv'>
-                  <button className='balancebutton'>Send</button>
+                  <button className='balancebutton'   onClick={() => navigate("/send")} >Send</button>
                   <button className='balancebutton'>Receive</button>
 
                 </div>
@@ -107,28 +118,53 @@ const Main: React.FC = () => {
               <div></div>
 
               <div className='list-empty'>
-                {/* <img className='list-empty-graphic' src="src\assets\image\graphicEmpty.svg"></img>
-                <div className='empty-cryptos'>There are no cryptos.</div>
-                <button className='add-token-button'>Add tokens</button> */}
+                <WalletBalance />
+              </div>
 
+              <div className='dragupmenudiv'>
+                {open &&
+                  <button className='backgrounddim' onClick={closeSheet}>
+                  </button>}
 
-                <div className='coin-asset-div'>
-                  <div className='coin-asset'>
-                    <img src="src\assets\image\eth.svg"></img>
-                    <div className='coin-asset-text'>
-                      <div className='coin-asset-ticker'>ETH</div>
-                      <div className='coin-asset-fullname'>Sepolia Ethereum</div>
-                    </div>
+                <div className={`dragupmenu ${open ? "open" : ""}`}>
+                  <button className='drag-btn-div'>
+                    <div className='drag-btn'></div>
+                  </button>
+
+                  <div className='wallet-manage'>
+                    <div className='walletstitle'>Wallets</div>
+                    <button className='manage-wallets'>
+                      <img src = "src/assets/image/icon_gear.png"></img>
+                      <div>Manage Wallets</div>
+                      </button>
                   </div>
-                  <div className='coin-asset-amount'><WalletBalance/></div>
+                  <div className='divider-div'>
+                    <div className='divider'></div>
+                  </div>
+                  <div className='walletblock'>
+                    <div className='wallet'>
+                      <div className='walletname'>Wallet A</div>
+                      <div className='notbackedup'>● Not backed up</div>
+                    </div>
+                    <div className='addressblock'>
+                      <img className="address-img" src="src/assets/image/graphic.svg"></img>
+                      <div className='address-text'>
+                        <div className='address-name'>Address 1</div>
+                        <div className='ctc-balance'>0 CTC</div>
+                      </div>
+                    </div>
+
+                  </div>
+                  <button className='add-wallets-div'>
+                    <div className='add-wallets'>Add wallets</div>
+                  </button>
+
                 </div>
 
 
-
               </div>
-
-
             </div>
+
           </div>
         </section>
       </div>

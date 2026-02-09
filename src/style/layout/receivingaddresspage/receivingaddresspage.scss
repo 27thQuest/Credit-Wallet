@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+.input-address {
+  margin-top: 20px;
+  width: 90%;
+
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 30px;
+  color: white;
+  text-align: center;
+
+  /* Make textarea behave like input */
+  border: none;
+  outline: none;
+  background: transparent;
+
+  resize: none;
+  overflow: hidden;
+
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  display: flex;
+  justify-self: center;
+}
+
+
+.address-validation.is-valid {
+
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 30px;
+    color:chartreuse;
+
+}
+.address-validation.is-invalid {
+
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 30px;
+    color:crimson;
+
+}
+.address-validation{
+    display: flex;
+    justify-self: center;
+    margin-top: 20px;
+}

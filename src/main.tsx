@@ -1,11 +1,14 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './style/layout/assets/assetspage.tsx'
-import "./script/wallet.ts"
-// import "./script/testnet.ts"
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
 
-createRoot(document.getElementById('root')!).render(
+import App from "../App.tsx";
+import "./script/wallet.ts";
+
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <App />
-  </StrictMode>,
-)
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </StrictMode>
+);
